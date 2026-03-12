@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hitachi-cn-runner"
+version = "0.1.0"
+description = "Field test runner for Hitachi Common Node elevator integration"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "requests>=2.31.0",
+  "urllib3>=2.0.0",
+]
+
+[tool.setuptools]
+packages = ["hitachi_cn"]

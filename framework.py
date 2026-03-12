@@ -6,11 +6,7 @@
 from __future__ import annotations
 
 from hitachi_cn.app import run_framework_mode
-from hitachi_cn.config import DEFAULT_FRAMEWORK_RUN, clone_config
-
-
-CONFIG = clone_config()
-RUN = dict(DEFAULT_FRAMEWORK_RUN)
+from project_config import CONFIG, RUN
 
 
 def main() -> None:

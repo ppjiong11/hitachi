@@ -6,6 +6,8 @@
 
 ```text
 hitachi/
+├── docs/
+│   └── DELIVERY_NOTE.md
 ├── hitachi_cn/
 │   ├── app.py
 │   ├── client.py
@@ -16,7 +18,15 @@ hitachi/
 │   ├── parsers.py
 │   ├── utils.py
 │   └── workflows.py
+├── scripts/
+│   └── package_check.py
+├── tests/
+│   ├── test_config.py
+│   └── test_parsers.py
 ├── framework.py
+├── project_config.example.py
+├── project_config.py
+├── pyproject.toml
 ├── runner.py
 ├── runner_final.py
 ├── runner_reset.py
@@ -35,11 +45,19 @@ hitachi/
 - `python runner.py`
   - 兼容入口，保留给旧使用方式。
 
+## 推荐使用方式
+
+1. 修改 `project_config.py`。
+2. 先运行 `python scripts/package_check.py`。
+3. 第一次联调先设置 `DRY_RUN=True`。
+4. 需要复位时运行 `python runner_reset.py`。
+
 ## 当前重构点
 
 - 将原本的大脚本拆为配置、日志、API 客户端、解析器、流程编排多个模块。
+- 将用户现场配置集中到 `project_config.py`，减少分散修改。
+- 增加 `docs/`、`tests/`、`scripts/`、`pyproject.toml`，让项目更像正式交付工程。
 - 保留原有脚本入口，避免现场使用方式变化太大。
-- 增加 `requirements.txt`、`.gitignore`、`README.md`，让项目更像正式交付工程。
 
 ## 安装
 
@@ -49,7 +67,7 @@ pip install -r requirements.txt
 
 ## 配置
 
-直接编辑入口脚本里的 `CONFIG` 即可，常用字段包括：
+直接编辑 `project_config.py` 里的 `CONFIG` 即可，常用字段包括：
 
 - `BASE_URL`
 - `USERNAME`
@@ -67,3 +85,4 @@ pip install -r requirements.txt
 - `runner_final.py` 默认会实际调用接口，现场使用前请确认楼层和梯号。
 - 如果是第一次联调，建议先打开 `DRY_RUN=True`。
 - 日志会输出到 `logs/` 目录。
+- 可用 `python -m unittest discover tests` 进行基础回归检查。

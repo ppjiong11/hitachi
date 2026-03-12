@@ -7,9 +7,11 @@ from __future__ import annotations
 
 from hitachi_cn.app import run_field_runner
 from hitachi_cn.config import clone_config
+from project_config import CONFIG as BASE_CONFIG
 
 
 CONFIG = clone_config(
+    BASE_CONFIG,
     RUN_SNAPSHOT=False,
     RUN_DOOR_TEST=False,
     RUN_TRIP_TEST=False,
