@@ -12,13 +12,11 @@
 
 ## 1.1 Reference Documents
 
-当前项目对应的原始规范文件路径如下：
+当前项目的标准文件由日立公司提供
 
-- [SRD0000116_Common Node API Specification_Annex 1.pdf](/Users/wangjianyu/Library/Containers/com.tencent.xinWeChat/Data/Documents/xwechat_files/wxid_1vgeyjwszwwl22_47d0/msg/file/2026-04/SRD0000116_Common Node API Specification_Annex 1.pdf)
-- [SRD0000116_Common Node API Specification_Annex 2.pdf](/Users/wangjianyu/Library/Containers/com.tencent.xinWeChat/Data/Documents/xwechat_files/wxid_1vgeyjwszwwl22_47d0/msg/file/2026-04/SRD0000116_Common Node API Specification_Annex 2.pdf)
-- [SRD0000116_Common Node API Specification_Annex 3.pdf](/Users/wangjianyu/Library/Containers/com.tencent.xinWeChat/Data/Documents/xwechat_files/wxid_1vgeyjwszwwl22_47d0/msg/file/2026-04/SRD0000116_Common Node API Specification_Annex 3.pdf)
-
-建议后续将这三份 PDF 正式复制到项目 `docs/` 目录或团队共享盘固定位置，避免微信容器路径后续变化。
+- SRD0000116_Common Node API Specification_Annex 1.pdf
+- SRD0000116_Common Node API Specification_Annex 2.pdf
+- SRD0000116_Common Node API Specification_Annex 3.pdf
 
 ## 2. Project Background
 
@@ -52,17 +50,17 @@
 
 当前仓库中的主要脚本如下：
 
-- [check.py](/Users/wangjianyu/code/hitachi/check.py)
+- [check.py](/hitachi/check.py)
   - 查询单梯状态和配置
-- [door_test.py](/Users/wangjianyu/code/hitachi/door_test.py)
+- [door_test.py](/hitachi/door_test.py)
   - 单独测试开门 / 关门 / cycle
-- [call_test.py](/Users/wangjianyu/code/hitachi/call_test.py)
+- [call_test.py](/hitachi/call_test.py)
   - 单独测试呼梯
-- [full_flow_test.py](/Users/wangjianyu/code/hitachi/full_flow_test.py)
+- [full_flow_test.py](/hitachi/full_flow_test.py)
   - 较完整的流程测试入口
-- [robot_manual_runner.py](/Users/wangjianyu/code/hitachi/robot_manual_runner.py)
+- [robot_manual_runner.py](/hitachi/robot_manual_runner.py)
   - 手动确认机器人进出电梯的完整流程
-- [runner_reset.py](/Users/wangjianyu/code/hitachi/runner_reset.py)
+- [runner_reset.py](/hitachi/runner_reset.py)
   - 清状态 / 复位入口
 
 ### 3.3 Validation Already Completed On Site
@@ -141,7 +139,7 @@
 
 ### 5.1 Status Check
 
-[check.py](/Users/wangjianyu/code/hitachi/check.py) 负责：
+[check.py](/hitachi/check.py) 负责：
 
 - 登录
 - 获取 `liftstatus`
@@ -151,7 +149,7 @@
 
 ### 5.2 Door Test
 
-[door_test.py](/Users/wangjianyu/code/hitachi/door_test.py) 当前支持三种模式：
+[door_test.py](/hitachi/door_test.py) 当前支持三种模式：
 
 - `DOOR_TEST_ACTION="1"` 或 `"open"`
   - 只开门
@@ -162,7 +160,7 @@
 
 ### 5.3 Call Test
 
-[call_test.py](/Users/wangjianyu/code/hitachi/call_test.py) 负责：
+[call_test.py](/hitachi/call_test.py) 负责：
 
 - 发 `requestfloor`
 - 检查 `frontReqFloorRegistered` / `rearReqFloorRegistered`
@@ -171,7 +169,7 @@
 
 ### 5.4 Manual Robot Full Flow
 
-[robot_manual_runner.py](/Users/wangjianyu/code/hitachi/robot_manual_runner.py) 负责：
+[robot_manual_runner.py](/hitachi/robot_manual_runner.py) 负责：
 
 1. 呼梯到 `REQUEST_FLOOR`
 2. 到达后开门
@@ -218,7 +216,7 @@
 每轮测试前后都可能需要清状态。  
 当前项目提供：
 
-- [runner_reset.py](/Users/wangjianyu/code/hitachi/runner_reset.py)
+- [runner_reset.py](/hitachi/runner_reset.py)
 
 用于统一清理：
 
@@ -281,10 +279,6 @@
 - 设备映射配置
 - 楼层映射配置
 
-### 8.4 Archive Annex Files
-
-当前原始资料已经定位到微信容器正式路径。  
-但该路径依然不适合作为长期归档位置，建议后续将 PDF 正式归档到仓库 `docs/` 或项目共享盘中，避免资料失联。
 
 ## 9. Handover Summary
 
