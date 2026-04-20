@@ -8,6 +8,7 @@ from .errors import CNAPIError
 from .logger import Logger
 from .utils import pretty
 from .workflows import (
+    run_call_test,
     reset_lift_state,
     run_demo_flow,
     run_door_test,
@@ -34,6 +35,11 @@ def run_field_runner(cfg: Dict[str, Any]) -> Logger:
             if bool(cfg.get("CONFIRM_BEFORE_MOVE", False)):
                 input(">>> Press ENTER to start DOOR TEST...")
             run_door_test(client, logger, lift_id, cfg)
+
+        if bool(cfg.get("RUN_CALL_TEST", False)):
+            if bool(cfg.get("CONFIRM_BEFORE_MOVE", False)):
+                input(">>> Press ENTER to start CALL TEST...")
+            run_call_test(client, logger, cfg)
 
         if bool(cfg.get("RUN_TRIP_TEST", False)):
             if bool(cfg.get("CONFIRM_BEFORE_MOVE", False)):

@@ -13,18 +13,18 @@
 
 ## Delivery Packaging
 
-当前版本已按交付导向整理为以下层次：
+当前版本已经按现场使用习惯拆成两条主线：
 
-- `project_config.py`
-  - 现场直接修改的统一配置入口。
-- `hitachi_cn/`
-  - 业务核心模块，便于后续二次开发。
+- `check.py`
+  - 专门查状态。
 - `runner_final.py`
-  - 主要联调入口。
+  - 专门做控制和流程。
 - `runner_reset.py`
-  - 紧急清状态入口。
+  - 专门做复位。
 - `framework.py`
-  - 低门槛接口调试入口。
+  - 兼容查询入口。
+- `hitachi_cn/`
+  - 业务核心模块，便于二次开发。
 - `tests/`
   - 基础回归测试。
 - `scripts/`
@@ -32,7 +32,7 @@
 
 ## Suggested Handover Steps
 
-1. 修改 `project_config.py` 中的设备地址和账号。
-2. 先将 `DRY_RUN=True` 做连通性检查。
+1. 修改 `check.py` 和 `runner_final.py` 中的设备地址和账号。
+2. 先将 `runner_final.py` 中的 `DRY_RUN=True` 做连通性检查。
 3. 确认 `LIFT_ID`、楼层编码、前后门策略。
 4. 使用 `runner_reset.py` 作为现场兜底复位工具。

@@ -1,16 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-"""Main field runner entrypoint for the Hitachi CN project."""
+"""Compatibility entrypoint for the full-flow test."""
 
 from __future__ import annotations
 
-from hitachi_cn.app import run_field_runner
-from project_config import CONFIG
-
-
-def main() -> None:
-    run_field_runner(CONFIG)
+from full_flow_test import CONFIG, main
 
 
 if __name__ == "__main__":
